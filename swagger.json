@@ -34,7 +34,7 @@
         "equipment" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/EquipmentItem"
+            "$ref" : "#/definitions/Equipment"
           }
         }
       }
@@ -59,7 +59,7 @@
         "equipment" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/EquipmentItem"
+            "$ref" : "#/definitions/Equipment"
           }
         }
       }
@@ -502,7 +502,7 @@
         }
       }
     },
-    "EquipmentItem" : {
+    "Equipment" : {
       "type" : "object",
       "required" : [ "id", "version", "equipmentLevel", "hierarchyScopeId", "effectiveFrom", "effectiveTo" ],
       "properties" : {
@@ -549,12 +549,12 @@
         "properties" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/EquipmentItemProperty"
+            "$ref" : "#/definitions/EquipmentProperty"
           }
         }
       }
     },
-    "EquipmentItemProperty" : {
+    "EquipmentProperty" : {
       "type" : "object",
       "required" : [ "id", "description", "value", "valueUnitOfMeasure" ],
       "properties" : {
