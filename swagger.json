@@ -1,7 +1,7 @@
 {
   "swagger" : "2.0",
   "info" : {
-    "description" : "Defines the messages published by the Tracking App Service.",
+    "description" : "Production tracking shall be defined as the collection of activities that prepare the production response for Level 4. This includes summarizing and reporting information about personnel and equipment actually used to produce product, material consumed, material produced and other relevant production data such as costs and performance analysis results. Production tracking also provides information to detailed production scheduling and Level 4 scheduling activities so schedules can be updated on the basis of current conditions.",
     "version" : "1.0.0",
     "title" : "Tracking App Service ESB Contract",
     "contact" : {
@@ -417,39 +417,56 @@
       "properties" : {
         "id" : {
           "type" : "string",
+          "description" : "A unique identification of a specific material lot, within the scope of the information exchanged (production capability, production schedule, production performance, …) The ID shall be used in other parts of the model when the material lot needs to be identified, such as the production capability for this material lot, or a production response identifying the material lot used.",
           "example" : "Block XYZ"
         },
         "version" : {
           "type" : "number",
+          "description" : "The version number of this instance of the Material Lot.",
           "example" : 1
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "Status of the material lot. For example, released, approved, blocked, in process, in quality check.",
+          "example" : "In Process"
         },
         "materialClassId" : {
           "type" : "string",
           "example" : "In-Situ"
         },
+        "materialDefinitionId" : {
+          "type" : "string",
+          "example" : "HG1"
+        },
         "description" : {
           "type" : "string",
+          "description" : "Additional information about the material lot.",
           "example" : "ER Crusher"
         },
-        "hierarchyScopeId" : {
+        "storageLocationId" : {
           "type" : "string",
+          "description" : "An identification of the storage location or a physical location of the material lot.",
           "example" : "ER-PC"
         },
         "quantity" : {
           "type" : "number",
+          "description" : "The quantity of the material lot.",
           "example" : 5000
         },
         "quantityUnitOfMeasure" : {
           "type" : "string",
+          "description" : "The unit of measure of the associated quantity, if applicable.",
           "example" : "Tonnes"
         },
         "effectiveFrom" : {
           "type" : "string",
-          "example" : 201808151000
+          "description" : "The timestamp that this state of the Material Lot is effective from.",
+          "example" : "201808151000"
         },
         "effectiveTo" : {
           "type" : "string",
-          "example" : 201808151000
+          "description" : "The timestamp that this state of the Material Lot expires.",
+          "example" : "201808151000"
         },
         "properties" : {
           "type" : "array",
@@ -461,18 +478,26 @@
     },
     "MaterialLotProperty" : {
       "type" : "object",
-      "required" : [ "propertyKey", "propertyValue", "context", "unitOfMeasure" ],
+      "required" : [ "id", "description", "value", "valueUnitOfMeasure" ],
       "properties" : {
-        "propertyKey" : {
+        "id" : {
           "type" : "string",
+          "description" : "An identification of a specific material class property.",
+          "example" : "DigRate"
+        },
+        "description" : {
+          "type" : "string",
+          "description" : "Additional information about the material class property.",
           "example" : "Dig Rate"
         },
-        "propertyValue" : {
+        "value" : {
           "type" : "string",
+          "description" : "The value, set of values, or range of the property.",
           "example" : 3600
         },
-        "unitOfMeasure" : {
+        "valueUnitOfMeasure" : {
           "type" : "string",
+          "description" : "The unit of measure of the associated property value, if applicable.",
           "example" : "Tonnes/Hour"
         }
       }
@@ -483,35 +508,43 @@
       "properties" : {
         "id" : {
           "type" : "string",
+          "description" : "A unique identification of a specific piece of equipment, within the scope of the information exchanged (manufacturing operations definition, scheduling, capability and performance) The equipment ID shall be used in other parts of the model when the equipment needs to be identified, such as the production capability for a piece of equipment, or a production response identifying the equipment used.",
           "example" : "EX7015"
         },
         "version" : {
           "type" : "number",
+          "description" : "The version of this Equipment that this message describes.",
           "example" : 1
         },
         "equipmentLevel" : {
           "type" : "string",
+          "description" : "An identification of the level in the role based equipment hierarchy.",
           "example" : "Work Unit"
         },
         "equipmentClassId" : {
           "type" : "string",
+          "description" : "The type of this Equipment item",
           "example" : "ER-9400"
         },
         "description" : {
           "type" : "string",
+          "description" : "Additional information about the equipment.",
           "example" : "Excavator EX7015"
         },
         "hierarchyScopeId" : {
           "type" : "string",
+          "description" : "The part of the supply chain where the Equipment item exists.",
           "example" : "ER-IP"
         },
         "effectiveFrom" : {
           "type" : "string",
-          "example" : 201808151000
+          "description" : "The timestamp that this Equipment item version is applicable from.",
+          "example" : "201808151000"
         },
         "effectiveTo" : {
           "type" : "string",
-          "example" : 201808151000
+          "description" : "The timestamp that this Equipment item version is applicable to.",
+          "example" : "201808151000"
         },
         "properties" : {
           "type" : "array",
@@ -523,18 +556,26 @@
     },
     "EquipmentItemProperty" : {
       "type" : "object",
-      "required" : [ "propertyKey", "propertyValue", "context", "unitOfMeasure" ],
+      "required" : [ "id", "description", "value", "valueUnitOfMeasure" ],
       "properties" : {
-        "propertyKey" : {
+        "id" : {
           "type" : "string",
+          "description" : "An identification of the specific property.",
+          "example" : "DigRate"
+        },
+        "description" : {
+          "type" : "string",
+          "description" : "Additional information about the equipment property.",
           "example" : "Dig Rate"
         },
-        "propertyValue" : {
+        "value" : {
           "type" : "string",
+          "description" : "The value, set of values, or range of the property. The value(s) is assumed to be within the range or set of defined values for the related equipment property.",
           "example" : 3600
         },
-        "unitOfMeasure" : {
+        "valueUnitOfMeasure" : {
           "type" : "string",
+          "description" : "The unit of measure of the associated property value, if applicable.",
           "example" : "Tonnes/Hour"
         }
       }
