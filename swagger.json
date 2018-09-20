@@ -206,6 +206,19 @@
           "description" : "Identifies the version of the associated work directive that was used, if applicable.",
           "example" : "1.0"
         },
+        "workMasterId" : {
+          "type" : "string",
+          "description" : "The version of the work master may be specificed in the attribute of this job response."
+        },
+        "workflowSpecificationId" : {
+          "type" : "string",
+          "description" : "The workflow specification related to this job response.",
+          "example" : "ER-LOADHAUL"
+        },
+        "workflowSpecificationNodeId" : {
+          "type" : "string",
+          "description" : "The workflow specification node related to this job response."
+        },
         "startTime" : {
           "type" : "string",
           "description" : "The starting time of this job response.",
@@ -582,6 +595,6 @@
     }
   },
   "host" : "virtserver.swaggerhub.com",
-  "basePath" : "/BHP7/Tracking_ESB/1.0.0",
-  "schemes" : [ "https" ]
+  "schemes" : [ "https" ],
+  "basePath" : "/BHP_TECH_SI/Tracking_ESB/1.0.0"
 }
