@@ -336,6 +336,13 @@
           "type" : "string",
           "description" : "Identifies the unit of measure of the quantity, if applicable.",
           "example" : "Tonnes/Hour"
+        },
+        "properties" : {
+          "type" : "array",
+          "description" : "The properties that this equipment actual property contains.",
+          "items" : {
+            "$ref" : "#/definitions/EquipmentActualProperty"
+          }
         }
       }
     },
@@ -431,6 +438,13 @@
           "type" : "string",
           "description" : "Identifies the unit of measure of the quantity, if applicable.",
           "example" : "Percentage"
+        },
+        "properties" : {
+          "type" : "array",
+          "description" : "The properties that this material actual property contains.",
+          "items" : {
+            "$ref" : "#/definitions/MaterialActualProperty"
+          }
         }
       }
     },
@@ -522,6 +536,13 @@
           "type" : "string",
           "description" : "The unit of measure of the associated property value, if applicable.",
           "example" : "Tonnes/Hour"
+        },
+        "properties" : {
+          "type" : "array",
+          "description" : "The properties that this material lot property contains.",
+          "items" : {
+            "$ref" : "#/definitions/MaterialLotProperty"
+          }
         }
       }
     },
@@ -600,6 +621,13 @@
           "type" : "string",
           "description" : "The unit of measure of the associated property value, if applicable.",
           "example" : "Tonnes/Hour"
+        },
+        "properties" : {
+          "type" : "array",
+          "description" : "The properties that this property contains.",
+          "items" : {
+            "$ref" : "#/definitions/EquipmentProperty"
+          }
         }
       }
     }
