@@ -289,6 +289,11 @@
           "description" : "Identifies the unit of measure of the quantity, if applicable.",
           "example" : "Each"
         },
+        "hierarchyScopeId" : {
+          "type" : "string",
+          "description" : "The part of the supply chain that this equipment was used in.",
+          "example" : "ER-IP"
+        },
         "properties" : {
           "type" : "array",
           "items" : {
@@ -378,6 +383,11 @@
           "type" : "string",
           "description" : "Identifies the unit of measure of the quantity, if applicable.",
           "example" : "Tonnes"
+        },
+        "hierarchyScopeId" : {
+          "type" : "string",
+          "description" : "The part of the supply chain that this material was used in.",
+          "example" : "ER-IP"
         },
         "properties" : {
           "type" : "array",
